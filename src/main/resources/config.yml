@@ -1,0 +1,48 @@
+# PLEASE NOTE: this uses registered economy manager in Vault such as Essentials
+genworld: world # World where the generators will work
+gentime: 300 # Time in ticks between item dropping. 20 ticks / second
+genslotcap: 0 # The max Generator cap a player can obtain | 0 = none
+defaultslots: 50 # Starting amount of gen slots for new players
+placeholders:
+  prefix: "gens" # use yourprefix_placeholdername | ex: gens_max_gens
+  maxgens: "max_gens"
+  placedgens: "current_gens"
+tanks:
+  enabled: false
+  block: "jukebox"
+  name: "&a&lStorage Box"
+  lore: "&7Right-Click to open box||&7Hold a sellwand while opening to gain a bigger sell multiplier||&7Left-Click to pickup" #seperated by ||
+  exp:
+    enabled: false
+    amount: "0.01" # amount of exp for every $1 gained
+    command: "givexp {player} {amount}" # command to give player exp
+  sellwands:
+    name: "&aSellwand &7x" # Make sure the number is at the very end of the text, it can be a normal number (1) or a double (1.0)
+    item: "stick"
+messages:
+  maxgenerator: "&cThis Generator Is Already Max Level" # When the player maxes out a Generator
+  placegeneratorsuccess: "&aPlaced Generator &7(&f{placed}&7/&f{max}&7)" # When a player places a Generator
+  upgradegeneratorsuccess: "&aSuccessfully Upgraded Generator" # When a player upgrades a Generator
+  upgradeneedmoney: "&cYou need &a${amount} &cto upgrade this" # When a player does not have enough money for the upgrade
+  notyourgenerator: "&cThis is not your Generator" # When the player tries to break a Generator they don't own
+  pickedupgenerator: "&aPicked up Generator" # When a player picks up a Generator
+  placedgeneratormax: "&cYou already have &f{placed}&7/&f{max} &cGenerators placed" # When the player already has max generators placed
+  solditems: "&eYou sold &6{items} &eitems for &a${amount}" # When the player sells items through GenTanks
+  maxgenslots: "&cYou already have the maximum number of gen slots or this voucher would pass the maximum!" # When the player redeems more generators than allowed to
+gens:
+  beacon:
+    block: "beacon" # The block that the Generator uses
+    drop: "stick" # What the Generator will drop
+    next: "emerald_block" # The next Generator to upgrade to
+    name: "&bStick Generator &7[Tier 1]" # The Generator's name
+    worth: 69420 # Sell price for gen GenTanks
+    upgrade_price: 69420 # Price for upgrading generators
+    lore: "||&6Information:|| &6¬ &7Sell: &b$1,250|| &6¬ &7Upgrade: &b$69,420" # Use || for new line
+  emerald:
+    block: "emerald_block"
+    drop: "emerald"
+    next: "MAX" # For the last generator in a set put "MAX" as the next value
+    name: "&aEmerald Generator &7[Tier 2]"
+    worth: 69
+    upgrade_price: 0 # Can be left as 0 as you cannot upgrade past the max generator
+    lore: "||&6Information:|| &6¬ &7Sell: &a$1,500"
