@@ -6,6 +6,8 @@ import com.lilygens.gencore.gens.Generator;
 import com.lilygens.gencore.gui.GenCoreGUI;
 import com.lilygens.gencore.handler.PluginHandler;
 import com.lilygens.gencore.util.ItemUtil;
+import de.tr7zw.changeme.nbtapi.NBTBlock;
+import de.tr7zw.changeme.nbtapi.NBTItem;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
@@ -103,6 +105,15 @@ public class Events implements Listener {
         }.runTaskAsynchronously(PluginHandler.getPlugin());
     }
 
+    public boolean isGenerator(Block block) {
+        NBTBlock nbt = new NBTBlock(block);
+        if (nbt.getData().getCompound("GenCore") == null) return false;
+        if (nbt.getData().getCompound("GenCore").getBoolean("isGen") == null) return false;
+
+        return true;
+    }
+
+
     @EventHandler
     public void GenInteract(PlayerInteractEvent event) {
         ItemStack i;
@@ -111,6 +122,7 @@ public class Events implements Listener {
                 Material block = Objects.requireNonNull(event.getClickedBlock()).getType();
                 if (PluginHandler.getPlugin().Generators.containsKey(block)) {
                     HashMap<Material, ArrayList<Location>> a = active_gens.get(event.getPlayer());
+                    if (!isGenerator(event.getClickedBlock())) return;
                     if (a == null) {
                         event.setCancelled(true);
                         assert message5 != null;
@@ -170,6 +182,7 @@ public class Events implements Listener {
                 if (event.getPlayer().isSneaking()) {
                     Block block = event.getClickedBlock();
                     if (PluginHandler.getPlugin().Generators.containsKey(block.getType())) {
+                        if (!isGenerator(event.getClickedBlock())) return;
                         try {
                             Generator gen = PluginHandler.getPlugin().Generators.get(block.getType());
                             HashMap<Material, ArrayList<Location>> c = active_gens.get(event.getPlayer());
@@ -234,6 +247,11 @@ public class Events implements Listener {
     public void blockPlace(BlockPlaceEvent event) {
         if (PluginHandler.getPlugin().Generators.containsKey(event.getBlock().getType())) {
             Player player = event.getPlayer();
+            NBTItem nbt = new NBTItem(player.getItemInHand());
+            if (!nbt.getBoolean("isGen")) {
+                event.isCancelled();
+                return;
+            };
             int slots = EventManager.getSlots(player);
             final int placed = EventManager.getPlaced(player) + 1;
             if (placed <= slots) {
@@ -251,6 +269,10 @@ public class Events implements Listener {
                         active_gens.replace(player, a);
                         assert message2 != null;
                         player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', message2.replace("{placed}", String.valueOf(placed)).replace("{max}", String.valueOf(slots)))));
+
+                        var nbtblock = new NBTBlock(event.getBlock());
+                        var compound = nbtblock.getData().getOrCreateCompound("GenCore");
+                        compound.setBoolean("isGen", true);
                     }
                 }
             } else {
