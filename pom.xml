@@ -6,7 +6,7 @@
 
     <groupId>com.lilygens</groupId>
     <artifactId>GenCore</artifactId>
-    <version>1.6.2-R1</version>
+    <version>1.6.3</version>
     <packaging>jar</packaging>
 
     <name>GenCore</name>

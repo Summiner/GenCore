@@ -1,7 +1,6 @@
-package com.lilygens.gencore.handler;
+package com.gencore.handler;
 
-import com.lilygens.gencore.GenCore;
-import lombok.Getter;
+import com.gencore.GenCore;
 
 public class PluginHandler {
     public static GenCore getPlugin() {

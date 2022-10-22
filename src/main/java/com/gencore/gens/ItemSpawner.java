@@ -1,11 +1,10 @@
-package com.lilygens.gencore.gens;
+package com.gencore.gens;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import com.lilygens.gencore.events.EventManager;
-import com.lilygens.gencore.events.Events;
-import com.lilygens.gencore.handler.PluginHandler;
+import com.gencore.events.Events;
+import com.gencore.handler.PluginHandler;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;

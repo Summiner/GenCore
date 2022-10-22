@@ -1,4 +1,4 @@
-package com.lilygens.gencore.util;
+package com.gencore.util;
 
 import lombok.experimental.UtilityClass;
 import net.md_5.bungee.api.ChatColor;

@@ -1,4 +1,4 @@
-package com.lilygens.gencore;
+package com.gencore;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,14 +8,14 @@ import java.util.Objects;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 
-import com.lilygens.gencore.data.DataBase;
-import com.lilygens.gencore.data.DBSaver;
-import com.lilygens.gencore.events.Events;
-import com.lilygens.gencore.gens.Generator;
-import com.lilygens.gencore.gui.GenCoreGUI;
-import com.lilygens.gencore.gens.ItemSpawner;
-import com.lilygens.gencore.util.ItemUtil;
-import com.lilygens.gencore.util.Placeholders;
+import com.gencore.data.DBSaver;
+import com.gencore.data.DataBase;
+import com.gencore.events.Events;
+import com.gencore.gens.Generator;
+import com.gencore.gens.ItemSpawner;
+import com.gencore.gui.GenCoreGUI;
+import com.gencore.util.ItemUtil;
+import com.gencore.util.Placeholders;
 import net.md_5.bungee.api.ChatColor;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;

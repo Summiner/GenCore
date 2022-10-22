@@ -1,6 +1,6 @@
-package com.lilygens.gencore.gens;
+package com.gencore.gens;
 
-import com.lilygens.gencore.util.ColorUtil;
+import com.gencore.util.ColorUtil;
 import de.tr7zw.changeme.nbtapi.NBTItem;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;

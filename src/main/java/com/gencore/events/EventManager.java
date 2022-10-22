@@ -1,4 +1,4 @@
-package com.lilygens.gencore.events;
+package com.gencore.events;
 
 import lombok.experimental.UtilityClass;
 import org.bukkit.Bukkit;

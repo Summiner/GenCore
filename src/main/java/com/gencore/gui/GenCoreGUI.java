@@ -1,11 +1,10 @@
-package com.lilygens.gencore.gui;
+package com.gencore.gui;
 
-import com.lilygens.gencore.events.EventManager;
-import com.lilygens.gencore.events.Events;
-import com.lilygens.gencore.gens.GenTanks;
-import com.lilygens.gencore.handler.PluginHandler;
-import com.lilygens.gencore.util.ColorUtil;
-import com.lilygens.gencore.util.ItemUtil;
+import com.gencore.events.Events;
+import com.gencore.gens.GenTanks;
+import com.gencore.handler.PluginHandler;
+import com.gencore.util.ColorUtil;
+import com.gencore.util.ItemUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;

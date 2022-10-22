@@ -1,4 +1,4 @@
-package com.lilygens.gencore.data;
+package com.gencore.data;
 
 import java.io.File;
 import java.sql.Connection;
@@ -10,9 +10,9 @@ import java.sql.Statement;
 import java.util.Objects;
 import java.util.UUID;
 
-import com.lilygens.gencore.events.EventManager;
-import com.lilygens.gencore.events.Events;
-import com.lilygens.gencore.handler.PluginHandler;
+import com.gencore.events.EventManager;
+import com.gencore.events.Events;
+import com.gencore.handler.PluginHandler;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.Configuration;
 import org.bukkit.entity.Player;

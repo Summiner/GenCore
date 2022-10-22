@@ -1,6 +1,6 @@
 name: GenCore
 version: '1.6.2-R1'
-main: com.lilygens.gencore.GenCore
+main: com.gencore.GenCore
 api-version: 1.17
 authors: [ Summiner, Symmettry (Optimizer) ]
 depend:

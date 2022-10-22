@@ -1,8 +1,8 @@
-package com.lilygens.gencore.gens;
+package com.gencore.gens;
 
+import com.gencore.handler.PluginHandler;
+import com.gencore.util.ColorUtil;
 import com.google.gson.Gson;
-import com.lilygens.gencore.handler.PluginHandler;
-import com.lilygens.gencore.util.ColorUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.configuration.Configuration;

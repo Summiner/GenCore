@@ -1,4 +1,4 @@
-package com.lilygens.gencore.util;
+package com.gencore.util;
 
 import java.util.ArrayList;
 import java.util.Arrays;

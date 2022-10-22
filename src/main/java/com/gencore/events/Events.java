@@ -1,11 +1,11 @@
-package com.lilygens.gencore.events;
+package com.gencore.events;
 
-import com.lilygens.gencore.data.DataBase;
-import com.lilygens.gencore.gens.GenTanks;
-import com.lilygens.gencore.gens.Generator;
-import com.lilygens.gencore.gui.GenCoreGUI;
-import com.lilygens.gencore.handler.PluginHandler;
-import com.lilygens.gencore.util.ItemUtil;
+import com.gencore.handler.PluginHandler;
+import com.gencore.data.DataBase;
+import com.gencore.gens.GenTanks;
+import com.gencore.gens.Generator;
+import com.gencore.gui.GenCoreGUI;
+import com.gencore.util.ItemUtil;
 import de.tr7zw.changeme.nbtapi.NBTBlock;
 import de.tr7zw.changeme.nbtapi.NBTItem;
 import net.md_5.bungee.api.ChatMessageType;

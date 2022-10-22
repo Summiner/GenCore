@@ -1,8 +1,7 @@
-package com.lilygens.gencore.util;
+package com.gencore.util;
 
-import com.lilygens.gencore.events.EventManager;
-import com.lilygens.gencore.events.Events;
-import com.lilygens.gencore.handler.PluginHandler;
+import com.gencore.events.Events;
+import com.gencore.handler.PluginHandler;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.configuration.Configuration;

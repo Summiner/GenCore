@@ -1,6 +1,6 @@
-package com.lilygens.gencore.data;
+package com.gencore.data;
 
-import com.lilygens.gencore.handler.PluginHandler;
+import com.gencore.handler.PluginHandler;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
