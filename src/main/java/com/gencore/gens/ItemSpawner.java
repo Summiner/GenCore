@@ -58,7 +58,7 @@ public class ItemSpawner implements Runnable {
                                     NBTItem nbt = new NBTItem(item);
                                     var compound = nbt.getOrCreateCompound("GenCore");
                                     compound.setBoolean("gen_Item", true);
-                                    compound.setString("gen_Type", key.toString());
+                                    compound.setLong("gen_Amount", PluginHandler.getPlugin().Generators.get(key).getSell());
                                     item.setAmount(size);
                                     Bukkit.getScheduler().runTask(PluginHandler.getPlugin(), () -> {
                                         Entity e = loc.getWorld().dropItem(loc, item);
