@@ -259,20 +259,28 @@ public class Events implements Listener {
                     if (event.getBlock().getWorld() != Bukkit.getWorld(Objects.requireNonNull(PluginHandler.getPlugin().getConfig().get("genworld")).toString())) event.setCancelled(true);
                     else if (event.getItemInHand().getItemMeta() != null && !event.getItemInHand().getItemMeta().getDisplayName().equals(Objects.requireNonNull(PluginHandler.getPlugin().Generators.get(event.getBlock().getType()).getItem().getItemMeta()).getDisplayName())) event.setCancelled(true);
                     else {
-                        placed_gens.replace(player, placed);
-                        active_gens.putIfAbsent(player, new HashMap<>());
-                        HashMap<Material, ArrayList<Location>> a = active_gens.get(player);
-                        a.putIfAbsent(event.getBlock().getType(), new ArrayList<>());
-                        ArrayList<Location> b = a.get(event.getBlock().getType());
-                        b.add(event.getBlock().getLocation());
-                        a.replace(event.getBlock().getType(), b);
-                        active_gens.replace(player, a);
-                        assert message2 != null;
-                        player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', message2.replace("{placed}", String.valueOf(placed)).replace("{max}", String.valueOf(slots)))));
+                        new BukkitRunnable() {
+                            @Override
+                            public void run() {
+                                if(!event.isCancelled()) {
+                                    placed_gens.replace(player, placed);
+                                    active_gens.putIfAbsent(player, new HashMap<>());
+                                    HashMap<Material, ArrayList<Location>> a = active_gens.get(player);
+                                    a.putIfAbsent(event.getBlock().getType(), new ArrayList<>());
+                                    ArrayList<Location> b = a.get(event.getBlock().getType());
+                                    b.add(event.getBlock().getLocation());
+                                    a.replace(event.getBlock().getType(), b);
+                                    active_gens.replace(player, a);
+                                    assert message2 != null;
+                                    player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', message2.replace("{placed}", String.valueOf(placed)).replace("{max}", String.valueOf(slots)))));
 
-                        var nbtblock = new NBTBlock(event.getBlock());
-                        var compound = nbtblock.getData().getOrCreateCompound("GenCore");
-                        compound.setBoolean("isGen", true);
+                                    var nbtblock = new NBTBlock(event.getBlock());
+                                    var compound = nbtblock.getData().getOrCreateCompound("GenCore");
+                                    compound.setBoolean("isGen", true);
+                                }
+                            }
+                        }.runTaskLater(PluginHandler.getPlugin(), 1L);
+
                     }
                 }
             } else {
