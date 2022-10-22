@@ -1,6 +1,7 @@
 package com.lilygens.gencore.gens;
 
 import com.lilygens.gencore.util.ColorUtil;
+import de.tr7zw.changeme.nbtapi.NBTItem;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -22,7 +23,9 @@ public class Generator {
         this.sell = sell;
         this.upgrade = upgrade;
         this.next = next;
-        ItemStack item = new ItemStack(block);
+        NBTItem nbt = new NBTItem(new ItemStack(block));
+        nbt.setBoolean("isGen", true);
+        ItemStack item = nbt.getItem();
         ItemMeta meta = item.getItemMeta();
         assert meta != null;
         meta.setDisplayName(ColorUtil.formatColor(name));
