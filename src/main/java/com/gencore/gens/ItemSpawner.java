@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import com.gencore.events.Events;
 import com.gencore.handler.PluginHandler;
+import de.tr7zw.changeme.nbtapi.NBTItem;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -54,6 +55,10 @@ public class ItemSpawner implements Runnable {
                                 if(c.getChunk().isLoaded()) {
                                     Location loc = new Location(c.getWorld(), c.getX() + 0.5D, c.getY() + 1.0D, c.getZ() + 0.5D);
                                     ItemStack item = new ItemStack(PluginHandler.getPlugin().Generators.get(key).getDrop());
+                                    NBTItem nbt = new NBTItem(item);
+                                    var compound = nbt.getOrCreateCompound("GenCore");
+                                    compound.setBoolean("gen_Item", true);
+                                    compound.setString("gen_Type", key.toString());
                                     item.setAmount(size);
                                     Bukkit.getScheduler().runTask(PluginHandler.getPlugin(), () -> {
                                         Entity e = loc.getWorld().dropItem(loc, item);
