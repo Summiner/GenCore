@@ -16,6 +16,7 @@ An easy to use/setup generator plugin for minecraft servers.
 - Symmettry - Code optimizations & Multiple suggestions
 
 ## Future Updates:
+- V1.6.4 - EnderPearl type placing cooldowns
 - V1.7 - QoL Update: Event Particles/Sounds | Event Logs (Place/Break/Upgrade/Save/Load) (DM me if you have more ideas <3)
 - V1.8 - Database Update: MongoDB/MYSQL/Redis Support
 - V1.9 - Backup Update: Automatic/Manual Backups | Reload backups for the entire server or just a specific user
